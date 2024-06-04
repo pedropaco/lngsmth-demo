@@ -1,5 +1,6 @@
 # project specific
 mysetup.txt
+.deepeval
 
 # MacOS
 .DS_Store
