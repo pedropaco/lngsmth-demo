@@ -1,29 +1,35 @@
 """Example tests using DeepEval relevancy"""
 
 from deepeval import assert_test
-from deepeval.test_case import LLMTestCase
+from deepeval import test_case
 from deepeval import metrics
 
 import langsmith
 
 
+answer_relevancy_metric = metrics.AnswerRelevancyMetric(threshold=0.5)
+
+
 @langsmith.unit
 def test_answer_relevancy():
-    """Good evaluation"""
-    answer_relevancy_metric = metrics.AnswerRelevancyMetric(threshold=0.5)
-    test_case = LLMTestCase(
+    """This test should pass"""
+    test = test_case.LLMTestCase(
         input="What if these shoes don't fit?",
         actual_output="We offer a 30-day full refund at no extra cost."
     )
-    assert_test(test_case, [answer_relevancy_metric])
+    assert_test(test, [answer_relevancy_metric])
 
 
 @langsmith.unit
-def test_answer_irrelevant():
-    """Poor evaluation"""
+def test_irrelevant_answer():
+    """This test should fail"""
     answer_relevancy_metric = metrics.AnswerRelevancyMetric(threshold=0.5)
-    test_case = LLMTestCase(
+    test = test_case.LLMTestCase(
         input="What if these shoes don't fit?",
         actual_output="I hate clowns!"
     )
-    assert_test(test_case, [answer_relevancy_metric])
+    try:
+        assert_test(test, [answer_relevancy_metric])
+    finally:
+        print(correctness_metric.score)
+        print(correctness_metric.reason)
