@@ -2,16 +2,16 @@
 
 ***Answer Correctness.***
 Evaluates the correctness of the LLM's response based on the expected output.\
-*Ragas*
+*Provided By: Ragas*
 
 ***Answer Relevancy.***
 Evaluate the relevancy of an LLM's response based on the provided input and context.\
-*DeepEval, Ragas*
+*Provided By: DeepEval, Ragas*
 
 ***Aspect Critique.***
 Evaluates specific dimensions or aspects of the generated content separately. Strict/binary metrics
 such as: harmfulness, maliciousness, coherence, correctness, conciseness\
-*Ragas*
+*Provided By: Ragas*
 
 ***Bias.***
 Evaluate the LLM's output for any inherent biases\
