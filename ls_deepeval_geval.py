@@ -46,4 +46,3 @@ def test_vague_answer():
     finally:
         print(correctness_metric.score)
         print(correctness_metric.reason)
-

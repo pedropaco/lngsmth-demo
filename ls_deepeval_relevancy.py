@@ -31,5 +31,5 @@ def test_irrelevant_answer():
     try:
         assert_test(test, [answer_relevancy_metric])
     finally:
-        print(correctness_metric.score)
-        print(correctness_metric.reason)
+        print(answer_relevancy_metric.score)
+        print(answer_relevancy_metric.reason)
